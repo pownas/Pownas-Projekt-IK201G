@@ -38,11 +38,11 @@ header{
     
 }
 
-#nav-button{
+#navButton{
 
 } */
 
-.nav-line{
+.navLine{
     display: block;
     width: 25px;
 }
@@ -82,7 +82,7 @@ footer{
     cursor: pointer;
 }
 
-.desktopMenu {
+.navMenuLinks {
     display: none;
 }
 .menuBtn {
@@ -92,7 +92,7 @@ footer{
 /* Desktop page: */
 @media screen and (min-width: 768px) { 
 
-    .desktopMenu {
+    .navMenuLinks {
         display: block;
         width: 50%;
         height: auto;
@@ -101,6 +101,10 @@ footer{
         font-family:'Roboto', sans-serif; 
         font-size: 2em;
         color: black;
+    }
+
+    #navButton{
+        display: none;
     }
 
     .menuBtn { 
