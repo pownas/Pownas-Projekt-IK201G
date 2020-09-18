@@ -1,0 +1,450 @@
+html, body{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family:'Roboto', sans-serif; 
+}
+
+.navBar{
+    display: flex;
+    padding: 0.5em;
+    flex-direction: column;
+}
+.navBarLinks{
+    list-style-type: none;
+    padding: 0;
+}
+.navBarLinks > li{
+    display: inline;
+    padding: 1em;
+    /* text-align: center; */
+}
+.navBarItems{
+    display: none;
+    margin: auto;
+    align-items: center;
+    /* flex-direction: column; */
+}
+
+.navBarItems-right{
+    margin-left:0;
+}
+
+
+.navBarToggleShow{
+    display: flex;
+}
+
+
+#header-title{
+    visibility: visible;
+    text-align: center;
+    display: block;
+    place-items: center;
+    margin-right: 30vw;
+    font-weight: bolder;
+}
+
+#header-logo{
+    display: grid;
+    text-align: start;
+    align-items: center;
+    place-items:center;
+    float: left;
+    padding: 0;
+    width: 200px;
+    height: auto;
+}
+
+.navBarLink-toggle{
+    align-self: flex-end;
+    display: initial;
+    position: absolute;
+    cursor: pointer;
+}
+
+
+/*Nav-desktop*/
+
+@media screen and (min-width: 768px) { 
+
+.navbar, .navBarItems{
+    flex-direction: row;
+}
+ .navBarItems{
+    display: block;
+    margin: 0;
+    text-align: center;
+ }
+
+ .navBarLinks > li{
+     padding: 0.9em;
+     margin: 0; 
+     width: auto; 
+ }
+
+ .navBarToggleShow{
+    display: none;
+}
+
+#header-title{
+    display: none;
+    visibility: hidden;
+}
+
+.navBarLink-toggle{
+    display: none;
+}
+
+.navBarLink-brand{
+    display: flex; 
+    width: auto;
+    align-self: flex-start;
+}
+
+.navbarLink {
+    width: auto;
+
+}
+
+.navBarEmpty-right{
+    width: 200px;
+    /* display: flex;
+    align-self: flex-end; */
+}
+
+}
+
+
+/*    ~~~~ NAVIGATION end ~~~>   */
+
+main{
+    height: 80%;
+    width: 100%;
+    background-image: url('../img/background.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+
+#welcome{
+    width: 100%;
+}
+#welcome > h1{
+    margin: 0 2em;
+    height: auto;
+    font-size: 4em;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    color: white;
+    text-transform: uppercase;
+    display: grid;
+    justify-content:center; 
+    place-items: center;   
+} 
+.welcome-buttons{
+    width: 100%;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.welcome-buttons > a{
+    width: 22%;
+    display:inline-block;
+    padding: 0.5em 0;
+    margin:0 0.3em 0.3em 0;
+    border:0.16em solid #FFFFFF;
+    box-sizing: border-box;
+    text-decoration:none;
+    text-transform:uppercase;
+    font-weight:600;
+    color: #FFFFFF;
+    border-color: rgb(255, 255, 255);
+    text-align: center;
+    transition: all 0.15s;
+    background-color: rgba(255, 255, 255, 0.257);
+    }
+.welcome-buttons > a:hover{
+    color:#DDDDDD;
+    border-color:#DDDDDD;
+    background-color:#dddddd25;
+    cursor: pointer;
+}
+.welcome-buttons > a:active{
+    color:#BBBBBB;
+    border-color:#BBBBBB;
+    background-color: rgba(187, 187, 187, 0.384);
+    }
+#page-content{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    justify-content:center;
+    place-items: center;
+}
+
+
+/*    <~~~ start FOOTER ~~~~   */
+footer{
+    width: 100%;
+    height: 10%;
+    background-color: rgb(238, 238, 238);
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    grid-row-start: 2;
+    grid-row-end: 3;
+    text-align: center;
+}
+.fas, .fab, .far{ /*Adding style to class fas, fab and far */
+    margin: 0.6em;
+    color: rgb(78, 78, 78); 
+    font-size: 2.5em;  
+}
+.fas:hover, .fab:hover, .far:hover{ /*Changing color and cursor when hover over class fas, fab and far */
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+.fa-github{
+    font-size: 1em;
+}
+/*    ~~~~ FOOTER end ~~~>   */
+
+
+/*    <~~~ start PORTFOLIO ~~~~   */
+.portfolio-box{
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    place-items: center;
+    border: 5px solid rgb(89, 0, 255); 
+}
+
+
+div.subPortfolio { 
+    width: 20%; 
+    height: auto; 
+    padding: 0; 
+    margin: 4% 1% 4% 1%; 
+    background-color: rgb(209, 209, 209); 
+    text-align: center; 
+    border-radius: 2%;
+    border: 5px solid rgb(0, 255, 85); 
+ 
+
+}
+.project-img{
+    width: 80%;
+    height: auto;
+    margin: 1.5em 1.5em 0 1.5em;
+}
+.fa-arrow-left, .fa-arrow-right{
+    color: rgb(255, 255, 255);
+    transition: all 0.15s;
+    cursor: pointer;
+    opacity: 0.5;
+}
+.fa-arrow-left:hover, .fa-arrow-right:hover{
+    color:#cececeaf;
+}
+/*    ~~~~ PORTFOLIO end ~~~>   */
+
+
+/*    ~~~~ ABOUT US start ~~~>   */
+.about-main{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    place-items: center;
+    
+}
+
+.about-submain{
+    width: 50%;  
+    margin: 0 25%; 
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    text-align: center;
+    
+}
+
+.about-developer{
+    width: 40%;
+    background-color: rgb(209, 209, 209);
+    margin: 0 1em;
+    padding: 0.5em;
+    border-radius: 2%;
+    font-size: 0.9em;
+}
+.developer-img{
+    width: 70%;
+    height: auto;
+    margin: 1em 0 0 0;
+    border-radius: 50%;
+}
+.developer-header{
+    margin: 0;
+    padding: 0;
+}
+
+.about-main > h1{
+    margin: 0;
+    text-align: center;
+    
+}
+
+.about-developer > h1{
+    font-size: 1.5em;
+}
+
+/*    ~~~~ ABOUT US end ~~~>   */
+
+
+/*    <~~~ start CONTACT ~~~~   */
+.contactPage{
+    display: flex;
+}
+
+.contactPage > div {
+    background-color: rgba(34, 34, 34, 0.541);
+    margin: 0.5em;
+    padding: 0.5em;
+    width: 50%;
+  }
+
+.contactLabel{
+    color: #FFFFFF;
+}
+
+.contactInfo{
+    display: flex;
+}
+
+.contactForm{
+    width: 90%;
+    margin-bottom: 1em;
+}
+
+.contactInfo > div {
+    background-color: rgba(255, 255, 255, 0.7);
+    margin: 0.5em;
+    padding: 0.5em;
+  }
+
+#contactSubmit {
+    width: 22%;
+    display:inline-block;
+    padding: 0.5em 0;
+    margin:0 0.3em 0.3em 0;
+    border:0.16em solid #FFFFFF;
+    box-sizing: border-box;
+    text-decoration:none;
+    text-transform:uppercase;
+    font-weight:600;
+    color: #FFFFFF;
+    border-color: rgb(255, 255, 255);
+    text-align: center;
+    transition: all 0.15s;
+    background-color: rgba(255, 255, 255, 0.257);
+}
+
+    /* Gör inget ännu nedan */
+.contactSubmit > input:hover{
+    color:#DDDDDD;
+    border-color:#DDDDDD;
+    background-color:#dddddd25;
+    cursor: pointer;
+}
+
+/* Gör inget ännu nedan */
+.contactSubmit > input:active{
+    color:#BBBBBB;
+    border-color:#BBBBBB;
+    background-color: rgba(187, 187, 187, 0.384);
+    }
+
+
+/* .contactLeft{
+    background: rgba(41, 236, 15, 0.801);  
+    display: inline-flex;
+    width: 30%;
+    place-items: left;
+    justify-content: left;
+    flex-wrap: nowrap;
+    text-align: left;
+}
+
+.contactRight{
+    background: rgba(182, 96, 15, 0.795); 
+    width: 30%;
+    flex-wrap: nowrap;
+    display: inline-flex;
+    place-items: right;
+    justify-content: right;
+    text-align: center;
+} */
+
+
+
+/*    ~~~~ CONTACT end ~~~>   */
+
+/* Desktop page: */
+@media screen and (min-width: 768px) { 
+    
+    .fas, .fab, .far{ /*Adding style to class fas, fab and far */ 
+        font-size: 2em;  
+    }
+    .fa-github{
+        font-size: 1em;
+    }
+    footer{
+        height: 10%;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+    .footer_left{
+        width:20%;
+        margin: 0 0 0 0;
+        float: left; 
+        text-align: center;
+    }
+    .footer_center{
+        width:60%;
+        margin: 0 0 0 0;
+        float:left;
+        display: grid;
+        place-items:center;
+        text-align: center;
+    }
+    .footer_right{
+        width:20%;
+        margin: 0 0 0 0;
+        float: right;
+        text-align: center;
+    }
+    #welcome > h1{
+        margin: 0 2em;
+        height: auto;
+        font-size: 6em;
+        font-weight: bold;
+        letter-spacing: 0.1em;
+        color: white;
+        text-transform: uppercase;
+        display: grid;
+        justify-content:center; 
+        place-items: center;   
+    }
+    /*    ~~~~ NAVIGATION start ~~~>   */
+    
+
+    
+    /*    ~~~~ NAVIGATION end ~~~>   */
+
+
+}
