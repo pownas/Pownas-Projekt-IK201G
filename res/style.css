@@ -30,6 +30,10 @@ nav > ul > li > a{
     padding: 1.1em;
     text-align: center;
 }
+nav > ul > li > a:hover{
+    cursor: pointer;
+    background: #333;
+}
 nav{
     display: none;
     visibility: hidden;
