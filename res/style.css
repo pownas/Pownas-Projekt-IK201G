@@ -20,7 +20,7 @@ nav > ul{
     padding: 0;
     margin: 0 auto;
     overflow: auto;
-    text-align:center;
+    text-align: center;
 }
 nav > ul > li{
     display: inline-block;
@@ -31,30 +31,43 @@ nav > ul > li > a{
     text-align: center;
 }
 nav{
-    display: inline-block;
+    display: none;
+    visibility: hidden;
     margin: 0 auto;
     width: 100%;
 }
 .navBar-right{
     display: block;
     float: right;
+    width: 20%;
+    height: auto;
 }
 .navBar-left{
     display: inline-block;
+    width: 200px;
 }
-
 .navBarToggleShow{
-    
+    display: inline-block;
+    visibility: visible;
 }
-#header-title{
+.navBar-center{
+    width: 20%;
     visibility: visible;
     display: inline-block;
-    padding: 1em;
+    vertical-align: text-bottom;
+    margin-left: 5%;
+    margin-bottom: 0.5em;
+}
+.navBar-center > h1{
+    display: inline-block;
+    margin: 0 auto;
+    font-size: 2em;
 }
 #header-logo{
     display: inline-block;
-    width: 200px;
+    width: 100%;
     height: auto;
+    margin: 0.2em 0 0 0.2em;
 }
 .navBarLink-toggle{
     display: block;
@@ -63,32 +76,31 @@ nav{
     padding: 1em;
 }
 
-
 /*Nav-desktop*/
-
 @media screen and (min-width: 768px) { 
 
     nav{
-        text-align: center;
+        visibility: visible;
         display: inline-block;
         margin: 0 auto;
         width: 60%;
     }
-    #header-title{
+    .navBar-left{
+        width: 200px;
+    }
+    .navBar-center{
         display: none;
         visibility: hidden;
-    }
-    .navBar-left{
-        width: 20%;
     }
     .navBar-right{
-        float: right;
-        width: 20%;
         display: none;
         visibility: hidden;
-        height: auto;
+        width: 200px;
     }
-    
+    #header-logo{
+        width: 200px;
+    }
+
 }
 
 /*    ~~~~ NAVIGATION end ~~~>   */
