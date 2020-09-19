@@ -6,57 +6,7 @@ html, body{
     font-family:'Roboto', sans-serif; 
 }
 
-/*NavBar start*/
-
-/* .navBar{
-    display: flex;
-    padding: 0.5em;
-    flex-direction: column;
-}
-.navBarLinks{
-    list-style-type: none;
-    padding: 0;
-}
-.navBarLinks > li{
-    display: inline;
-    padding: 1em;
-}
-.navBarItems{
-    display: none;
-    margin: auto;
-    align-items: center;
-}
-.navBarItems-right{
-    margin-left:0;
-}
-.navBarToggleShow{
-    display: flex;
-}
-#header-title{
-    visibility: visible;
-    text-align: center;
-    display: block;
-    place-items: center;
-    margin-right: 30vw;
-    font-weight: bolder;
-}
-#header-logo{
-    display: grid;
-    text-align: start;
-    align-items: center;
-    place-items:center;
-    float: left;
-    padding: 0;
-    width: 200px;
-    height: auto;
-}
-.navBarLink-toggle{
-    align-self: flex-end;
-    display: initial;
-    position: absolute;
-    cursor: pointer;
-} */
-
+/*    <~~~ start NAVIGATION ~~~~   */
 
 .navBar{
     width: 100%;
@@ -140,52 +90,6 @@ nav{
     }
     
 }
-
-/* .navbar, .navBarItems{
-    flex-direction: row;
-}
- .navBarItems{
-    display: block;
-    margin: 0;
-    text-align: center;
- }
-
- .navBarLinks > li{
-     padding: 0.9em;
-     margin: 0; 
-     width: auto; 
- }
-
- .navBarToggleShow{
-    display: none;
-}
-
-#header-title{
-    display: none;
-    visibility: hidden;
-}
-
-.navBarLink-toggle{
-    display: none;
-}
-
-.navBarLink-brand{
-    display: flex; 
-    width: auto;
-    align-self: flex-start;
-}
-
-.navbarLink {
-    width: auto;
-
-}
-
-.navBarEmpty-right{
-    width: 200px;
-}
-
-} */
-
 
 /*    ~~~~ NAVIGATION end ~~~>   */
 
