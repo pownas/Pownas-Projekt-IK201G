@@ -6,7 +6,9 @@ html, body{
     font-family:'Roboto', sans-serif; 
 }
 
-.navBar{
+/*NavBar start*/
+
+/* .navBar{
     display: flex;
     padding: 0.5em;
     flex-direction: column;
@@ -18,25 +20,18 @@ html, body{
 .navBarLinks > li{
     display: inline;
     padding: 1em;
-    /* text-align: center; */
 }
 .navBarItems{
     display: none;
     margin: auto;
     align-items: center;
-    /* flex-direction: column; */
 }
-
 .navBarItems-right{
     margin-left:0;
 }
-
-
 .navBarToggleShow{
     display: flex;
 }
-
-
 #header-title{
     visibility: visible;
     text-align: center;
@@ -45,7 +40,6 @@ html, body{
     margin-right: 30vw;
     font-weight: bolder;
 }
-
 #header-logo{
     display: grid;
     text-align: start;
@@ -56,12 +50,67 @@ html, body{
     width: 200px;
     height: auto;
 }
-
 .navBarLink-toggle{
     align-self: flex-end;
     display: initial;
     position: absolute;
     cursor: pointer;
+} */
+
+
+.navBar{
+    width: 100%;
+    display: inline-block;
+    min-height: 55px;
+    background: #BBBBBB;
+    justify-content: center;
+}
+nav > ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
+    overflow: auto;
+    text-align:center;
+}
+nav > ul > li{
+    display: inline-block;
+}
+nav > ul > li > a{
+    display: inline-block;
+    padding: 1.1em;
+    text-align: center;
+}
+nav{
+    display: inline-block;
+    margin: 0 auto;
+    width: 100%;
+}
+.navBar-right{
+    display: block;
+    float: right;
+}
+.navBar-left{
+    display: inline-block;
+}
+
+.navBarToggleShow{
+    
+}
+#header-title{
+    visibility: visible;
+    display: inline-block;
+    padding: 1em;
+}
+#header-logo{
+    display: inline-block;
+    width: 200px;
+    height: auto;
+}
+.navBarLink-toggle{
+    display: block;
+    margin: 0.5em 0.5em;
+    float: right;
+    padding: 1em;
 }
 
 
@@ -69,7 +118,30 @@ html, body{
 
 @media screen and (min-width: 768px) { 
 
-.navbar, .navBarItems{
+    nav{
+        text-align: center;
+        display: inline-block;
+        margin: 0 auto;
+        width: 60%;
+    }
+    #header-title{
+        display: none;
+        visibility: hidden;
+    }
+    .navBar-left{
+        width: 20%;
+    }
+    .navBar-right{
+        float: right;
+        width: 20%;
+        display: none;
+        visibility: hidden;
+        height: auto;
+    }
+    
+}
+
+/* .navbar, .navBarItems{
     flex-direction: row;
 }
  .navBarItems{
@@ -110,11 +182,9 @@ html, body{
 
 .navBarEmpty-right{
     width: 200px;
-    /* display: flex;
-    align-self: flex-end; */
 }
 
-}
+} */
 
 
 /*    ~~~~ NAVIGATION end ~~~>   */
