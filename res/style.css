@@ -33,6 +33,7 @@ nav > ul > li > a{
 nav > ul > li > a:hover{
     cursor: pointer;
     background: #333;
+    color: #fff
 }
 nav{
     display: none;
@@ -74,6 +75,7 @@ nav{
     width: 95%;
     height: auto;
     margin: 0.2em;
+    cursor: pointer;
 }
 .navBarLink-toggle{
     display: block;
