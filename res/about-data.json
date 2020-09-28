@@ -1,0 +1,72 @@
+{
+    "person": [
+        {
+          "id": "personId0",
+          "firstname": "Matilda",
+          "lastname": "Wennberg",
+          "title": "Developer",
+          "description": "Hej det här är jag yeee",
+          "email": "example@example.com",
+          "telephone": "+46701740605",
+          "portrait": "./img/portrait-woman.jpg",
+          "portraitBig": "./img/woman.jpg",
+          "java": "70%",
+          "html": "50%",
+          "javascript": "20%",
+          "css": "50%",
+          "sql": "10%",
+          "photoshop": "60%"
+        },
+        {
+            "id": "personId1",
+            "firstname": "Selda",
+            "lastname": "Garabedian",
+            "title": "Developer",
+            "description": "Hej det här är jag yeee",
+            "email": "example@example.com",
+            "telephone": "+46701740610",
+            "portrait": "./img/portrait-woman.jpg",
+            "portraitBig": "./img/woman.jpg",
+            "java": "100%",
+            "html": "50%",
+            "javascript": "20%",
+            "css": "50%",
+            "sql": "80%",
+            "photoshop": "0%"
+          },
+          {
+            "id": "personId2",
+            "firstname": "Oskar",
+            "lastname": "Bendrik",
+            "title": "Developer",
+            "description": "Hej det här är jag yooo",
+            "email": "example@example.com",
+            "telephone": "+46701740616",
+            "portrait": "./img/portrait-man.jpg",
+            "portraitBig": "./img/man.jpg",
+            "java": "100%",
+            "html": "50%",
+            "javascript": "20%",
+            "css": "50%",
+            "sql": "80%",
+            "photoshop": "0%"
+          },
+          {
+            "id": "personId3",
+            "firstname": "Jonas",
+            "lastname": "Arvidson",
+            "title": "Developer",
+            "description": "Hej det här är jag yeee",
+            "email": "example@example.com",
+            "telephone": "+46701740699",
+            "portrait": "./img/portrait-man.jpg",
+            "portraitBig": "./img/man.jpg",
+            "java": "100%",
+            "html": "50%",
+            "javascript": "20%",
+            "css": "50%",
+            "sql": "80%",
+            "photoshop": "0%"
+          }
+    ]
+}

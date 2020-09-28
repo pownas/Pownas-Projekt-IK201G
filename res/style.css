@@ -4,19 +4,29 @@ html, body{
     padding: 0;
     margin: 0;
     font-family:'Roboto', sans-serif; 
+    background: rgb(238, 238, 238);
 }
 
-/*    <~~~ start NAVIGATION ~~~~   */
+#page-content{
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    justify-content:center;
+    place-items: center;
+}
+
+/*    <~~~ NAVIGATION start ~~~~   */
 
 .navBar{
     width: 100%;
     display: inline-block;
     min-height: 55px;
-    background: #BBBBBB;
+    background: rgb(238, 238, 238);
     justify-content: center;
 }
 nav > ul{
     list-style-type: none;
+    width: 100%;
     padding: 0;
     margin: 0 auto;
     overflow: auto;
@@ -27,10 +37,15 @@ nav > ul > li{
 }
 nav > ul > li > a{
     display: inline-block;
-    padding: 1.1em;
+    padding: 0.8em;
     text-align: center;
 }
 nav > ul > li > a:hover{
+    cursor: pointer;
+    background: #333;
+    color: #fff
+}
+.activePage{
     cursor: pointer;
     background: #333;
     color: #fff
@@ -41,22 +56,19 @@ nav{
     margin: 0 auto;
     width: 100%;
 }
-.navBar-right{
-    display: block;
-    float: right;
-    width: 28%;
-    height: auto;
-}
 .navBar-left{
     display: inline-block;
     width: 28%;
 }
-.navBarToggleShow{
+#header-logo{
     display: inline-block;
-    visibility: visible;
+    width: 95%;
+    height: auto;
+    margin: 0.2em 1em;
+    cursor: pointer;
 }
 .navBar-center{
-    width: 43%;
+    width: 40%;
     visibility: visible;
     display: inline-block;
     vertical-align: text-bottom;
@@ -70,24 +82,605 @@ nav{
     text-align: center;
     font-weight: bold;
 }
-#header-logo{
-    display: inline-block;
-    width: 95%;
+.navBar-right{
+    display: block;
+    float: right;
+    width: 28%;
     height: auto;
-    margin: 0.2em;
-    cursor: pointer;
 }
-.navBarLink-toggle{
+.navButton-toggle{
+    height: 44px;
+    width: 44px;
+    position: relative;
     display: block;
     margin: 0.5em 0.5em;
     float: right;
-    padding: 1em;
+    padding: 3px 6px;
+    background: transparent;
+    border: 3px solid #555;
+    border-radius: 8px;
+}
+.navButton-Line{
+    background:#555;
+    display: block;
+    width: 26px;
+    height: 3px;
+    border-radius: 1px;
+    margin: 5px 0;
+}
+.navBar-show{
+    display: inline-block;
+    visibility: visible;
+    /* animation: openNavBar 1s linear 0s 1 alternate; 
+    blev lättare att skriva ut allt nedan:*/
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-fill-mode: none;
+    animation-play-state: running;
+    animation-name: openNavBar;
 }
 
-/*Nav-desktop*/
+@keyframes openNavBar{
+    0%  {opacity: 0%; }
+  100%  {opacity: 100%; }
+}
+
+/* Dropdown-start */
+.navDropdownContent{
+    display: none;
+    position: absolute;
+    background-color: rgb(238, 238, 238);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    width: auto;
+    min-width: 7em;
+}
+.navDropdownContent a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+.navDropdownContent a:hover {
+    background-color: #333;
+    color: #fff;
+}
+.navDropdownContent:hover .navHaveDropdown {
+    background-color: #333;
+    color: #fff;
+}
+.navHaveDropdown:hover .navDropdownContent {
+    display: block;
+}
+/* Dropdown-end */
+
+/*    ~~~~ NAVIGATION end ~~~>   */
+
+/*    ~~~~ HOME start ~~~>   */
+
+main{
+    min-height: 80%;
+    width: 100%;
+    background-image: url('../img/background.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    overflow: hidden;
+}
+
+#welcome{
+    width: 100%;
+    margin-top: 10em;
+    opacity: 0; 
+}
+#welcome > h1{
+    margin: 0 auto;
+    height: auto;
+    font-size: 4em;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    color: white;
+    text-transform: uppercase;
+    display: grid;
+    justify-content:center; 
+    place-items: center;   
+} 
+.welcome-buttons{
+    width: 100%;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.welcome-buttons > a{
+    width: 10em;
+    display:inline-block;
+    padding: 0.5em 0;
+    margin: 0.2em;
+    border: 0.16em solid #FFFFFF;
+    box-sizing: border-box;
+    text-decoration:none;
+    text-transform:uppercase;
+    font-weight:600;
+    color: #FFFFFF;
+    border-color: rgb(255, 255, 255);
+    text-align: center;
+    transition: all 0.15s;
+    background: rgba(255, 255, 255, 0.257);
+}
+.welcome-buttons > a:hover{
+    color:#DDDDDD;
+    border-color:#DDDDDD;
+    background:#dddddd25;
+    cursor: pointer;
+}
+.welcome-buttons > a:active{
+    color:#BBBBBB;
+    border-color:#BBBBBB;
+    background: rgba(187, 187, 187, 0.384);
+}
+
+/*    ~~~~ HOME end ~~~>   */
+
+/*    <~~~ FOOTER start ~~~~   */
+footer{
+    width: 100%;
+    background: rgb(238, 238, 238);
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    text-align: center;
+}
+
+.fa-envelope, .fa-phone, .fa-instagram, .fa-facebook-f{ 
+    margin: 0.6em;
+    color: rgb(78, 78, 78); 
+    font-size: 1.5em;  
+}
+
+.fas:hover, .fab:hover, .far:hover{
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+/* Adding GitHub icon font-size */
+.fa-github{
+    font-size: 1em;
+}
+.footer_center > p > a{
+    color: rgb(0, 0, 0);
+}
+
+/*    ~~~~ FOOTER end ~~~>   */
+
+
+/*    <~~~ PORTFOLIO start ~~~~   */
+
+.portfolioMain{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.portfolioLeft, .portfolioRight{
+    margin: 1em 1%;
+}
+.portfolioRight{
+    float: right;
+    position: relative;
+    right: 0%;
+}
+.portfolio-box{
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;  
+    align-items: center;
+}
+#portfolioGroup{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+div.subPortfolio { 
+    width: 80%; 
+    height: auto; 
+    padding: 0.5%; 
+    margin: 1em; 
+    background: rgba(255, 255, 255, 0.900);
+    text-align: center; 
+    border-radius: 2%;
+
+}
+.subPortfolio:hover{
+    transform: scale(1.05); 
+    cursor: pointer;
+}
+.project-img{
+    width: 80%;
+    height: auto;
+    margin: 1.5em 1.5em 0 1.5em;
+    border-radius: 2%;
+}
+.fa-arrow-left, .fa-arrow-right{
+    color: rgb(255, 255, 255);
+    transition: all 0.15s;
+    cursor: pointer;
+    opacity: 0.5;
+    font-size: 3em;
+}
+.fa-arrow-left:hover, .fa-arrow-right:hover{
+    color:#cececeaf;
+}
+.projectdiv {
+    width: 100%;
+    height: 100%; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.432);
+    /* justify-content:center;
+    place-items: center; */
+    display: none;
+}
+.project-content{
+    background: rgba(255, 255, 255, 0.900);
+    width: 70%;
+    height: auto;
+    position: fixed;
+    padding: 0;
+    margin: 4% 15%;
+    z-index: 2;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: scroll; 
+    max-height:100%;
+}
+.project-image{
+    width: 500px;
+    height: auto;
+    margin: 5% 0 0 0;
+    padding: 0;
+}
+.project-content-right > h2, .project-content-right > h3, .project-content-right > p{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+.project-content-right > h2{
+    text-align: center;
+}
+.project-content-right > hr{
+    width: 60%;
+    color: rgb(0, 0, 0);
+}
+.project-content-right{
+    width: 80%;
+    height: auto;
+    margin: 0 10%;
+    padding: 1%;
+    right: 0px;
+    top: 0px;
+    text-align: center;
+    justify-content: center;
+}
+#close-portfolio{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/*    ~~~~ PORTFOLIO end ~~~>   */
+
+
+
+/*    ~~~~ ABOUT US start ~~~>   */
+
+.about-description{
+    width: 90%;
+    margin: 2%;
+    padding: 2% 3%;
+    text-align: justify;
+    justify-content: center;
+    background: rgba(34, 34, 34, 0.541);
+    color: white;
+}
+.about-description > h1{
+    text-align: center;
+}
+.about-main{
+    width: 90%;
+    margin: 2%;
+    padding: 2% 3%; 
+    height: 100%;
+    text-align: center;
+    justify-content: center;
+    transition: all 0.15s;
+    background: rgba(34, 34, 34, 0.541);
+    color: white;
+
+}
+.about-main > h1{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-size: 2em;
+}
+#about-submain{
+    width: 100%;
+    margin: 0 0 3% 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.about-developer{
+    width: 40%;
+    margin: 1% 0;
+    padding: 1% 0;
+    border-radius: 2%;
+    font-size: 0.9em;
+    text-align: center;
+ 
+}
+.about-developer:hover{
+    cursor: pointer;
+    color:#DDDDDD;
+    border-color:#DDDDDD;
+    background:#dddddd25;
+}
+.about-developer > a:active{
+    color:#BBBBBB;
+    border-color:#BBBBBB;
+    background: rgba(187, 187, 187, 0.384);
+}
+.about-developer > img{
+    width: 70%;
+    height: auto;
+    margin: 0 0 0 0;
+    border-radius: 50%;
+}
+.about-developer > h1{
+    font-size: 1.5em;
+    margin: 0;
+    padding: 0;
+}
+.about-developer > p{
+    margin: 0;
+    padding: 0;
+}
+.persondiv {
+    width: 100%;
+    height: 100%; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.432);
+    justify-content:center;
+    place-items: center;
+    display: none;
+}
+.person-content{
+    background: rgba(255, 255, 255, 0.900);
+    width: 100%;
+    height: auto;
+    position: fixed;
+    padding: 0;
+    margin:0;
+    z-index: 2;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: scroll; 
+    max-height:100%;
+}
+
+.person-portrait{
+    width: 80%;
+    height: auto;
+    margin: 5% 10%;
+    display: flex;
+    justify-content: center;
+}
+/* .person-content-left{
+    width: 100%;
+    height: auto;
+    margin: 2%;
+    display: flex;
+    justify-content: center;
+    /* border: 2px solid rgb(184, 26, 15);
+} */
+.person-content-right > h2, .person-content-right > h3, .person-content-right > p{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+.person-content-right > h2{
+    text-align: center;
+}
+.person-content-right > hr{
+    width: 60%;
+    color: rgb(0, 0, 0);
+}
+.person-content-right{
+    width: 80%;
+    height: auto;
+    margin: 1% 0 1% 1%;
+    padding: 1% 4%;
+    right: 0px;
+    top: 0px;
+    text-align: justify;
+    justify-content: center;
+}
+#close-person{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.fa-times{ 
+    margin: 0.1em 0.3em;
+    padding: 0;
+    color: rgb(78, 78, 78); 
+    font-size: 2em;  
+}
+.skills{
+    padding: 0;
+    margin: 0;
+}
+.skills > p{
+    padding: 0;
+    margin: 2% 0 0 0; 
+    font-weight: bold;
+    font-size: 0.8em;
+    letter-spacing: 0.1em;
+}
+.skill-meter{
+    width:100%;
+    color: white;
+    font-weight: bold;
+    background-color: rgba(138, 133, 133, 0.507);
+}
+.java-skills{
+    background-color: #4CAF50;
+    text-align: right;
+}
+.html-skills{
+    background-color: #2196F3;
+    text-align: right;
+}
+.javascript-skills{
+    background-color: #f321bf;
+    text-align: right;
+}
+.css-skills{
+    background-color: #5f5e5e;
+    text-align: right;
+}
+.sql-skills{
+    background-color: #f44336;
+    text-align: right;
+}
+.photoshop-skills{
+    background-color: #e78402;
+    text-align: right;
+}
+
+/*    ~~~~ ABOUT US end ~~~>   */
+
+/*    <~~~ start CONTACT ~~~~   */
+#contactTitle{
+    text-align: center;
+    display: none; 
+}
+.contactPage{
+    display: block;
+}
+.contactPage > div {
+    background: rgba(34, 34, 34, 0.541);
+    width: 80%;
+}
+.contactLeft{
+    padding: 1em 2em 0.5em 1.5em;
+    margin: 1em auto; 
+}    
+.contactRight {
+    padding: 1em 2em 0.5em 1.5em;
+    margin: 1em auto; 
+}
+.contactLabel{
+    color: #FFFFFF;
+}
+.contactInfo{
+    display: flex;
+}
+.contactForm{
+    width: 100%;
+    margin-bottom: 1em;
+    font-family: inherit;
+    opacity: 75%;
+    font-size: 0.9em;
+}
+.contactInfo > div {
+    margin: 0;
+    padding: 0.5em;
+    width: 33%;
+    color: #fff;
+}
+.contactInfo > div > h3{
+    margin: 0;
+    font-size: 0.9em;
+}
+.contactInfo > div > p{
+    font-size: 0.9em;
+}
+#contactSubmit {
+    width: 8em;
+    height: 3em; 
+    display: inline-block;
+    padding: 0.5em 0;
+    margin: 1.5em 0;
+    border: 0.16em solid #FFFFFF;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #FFFFFF;
+    border-color: rgb(255, 255, 255);
+    text-align: center;
+    transition: all 0.15s;
+    background: rgba(255, 255, 255, 0.257);
+}
+#contactSubmit:hover{
+    color:#DDDDDD;
+    border-color:#DDDDDD;
+    background:#dddddd25;
+    cursor: pointer;
+}
+#contactSubmit:active{
+    color:#BBBBBB;
+    border-color:#BBBBBB;
+    background: rgba(187, 187, 187, 0.384);
+}
+.contactMap{
+    text-align: center;
+    margin-top: 1.2em; 
+}
+
+.contactError{ 
+    color:rgb(243, 127, 127);
+    float:right;
+}
+.contactOk{
+    color:rgb(0, 221, 7);
+    float:right;
+}
+
+/*    ~~~~ CONTACT end ~~~>   */
+
+
+/* start of Desktop-page: */
 @media screen and (min-width: 768px) { 
 
+    /*  <~~~ NAVIGATION desktop start~~~~   */    
     nav{
+        visibility: visible;
+        display: inline-block;
+        margin: 0 auto;
+        width: 60%;
+    }
+    .navDesktop{
         visibility: visible;
         display: inline-block;
         margin: 0 auto;
@@ -108,299 +701,97 @@ nav{
     #header-logo{
         width: 200px;
     }
-
-}
-
-/*    ~~~~ NAVIGATION end ~~~>   */
-
-main{
-    height: 80%;
-    width: 100%;
-    background-image: url('../img/background.jpg');
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-}
-
-
-#welcome{
-    width: 100%;
-}
-#welcome > h1{
-    margin: 0 2em;
-    height: auto;
-    font-size: 4em;
-    font-weight: bold;
-    letter-spacing: 0.1em;
-    color: white;
-    text-transform: uppercase;
-    display: grid;
-    justify-content:center; 
-    place-items: center;   
-} 
-.welcome-buttons{
-    width: 100%;
-    display: flex;
-    place-items: center;
-    justify-content: center;
-    text-align: center;
-}
-.welcome-buttons > a{
-    width: 22%;
-    display:inline-block;
-    padding: 0.5em 0;
-    margin:0 0.3em 0.3em 0;
-    border:0.16em solid #FFFFFF;
-    box-sizing: border-box;
-    text-decoration:none;
-    text-transform:uppercase;
-    font-weight:600;
-    color: #FFFFFF;
-    border-color: rgb(255, 255, 255);
-    text-align: center;
-    transition: all 0.15s;
-    background-color: rgba(255, 255, 255, 0.257);
+    nav > ul{
+        width: auto;
     }
-.welcome-buttons > a:hover{
-    color:#DDDDDD;
-    border-color:#DDDDDD;
-    background-color:#dddddd25;
-    cursor: pointer;
-}
-.welcome-buttons > a:active{
-    color:#BBBBBB;
-    border-color:#BBBBBB;
-    background-color: rgba(187, 187, 187, 0.384);
+    
+    /*    ~~~~ NAVIGATION desktop end ~~~>   */
+
+    /*    <~~~ PORTFOLIO desktop start ~~~~   */
+    .portfolioMain{
+        flex-direction: row;
     }
-#page-content{
-    width: 100%;
-    height: 100%;
-    display: grid;
-    justify-content:center;
-    place-items: center;
-}
-
-
-/*    <~~~ start FOOTER ~~~~   */
-footer{
-    width: 100%;
-    height: 10%;
-    background-color: rgb(238, 238, 238);
-    display: flex;
-    justify-content: center;
-    align-items: center;    
-    grid-row-start: 2;
-    grid-row-end: 3;
-    text-align: center;
-}
-.fas, .fab, .far{ /*Adding style to class fas, fab and far */
-    margin: 0.6em;
-    color: rgb(78, 78, 78); 
-    font-size: 2.5em;  
-}
-.fas:hover, .fab:hover, .far:hover{ /*Changing color and cursor when hover over class fas, fab and far */
-    color: rgb(0, 0, 0);
-    cursor: pointer;
-}
-.fa-github{
-    font-size: 1em;
-}
-/*    ~~~~ FOOTER end ~~~>   */
-
-
-/*    <~~~ start PORTFOLIO ~~~~   */
-.portfolio-box{
-    width: 100%;
-    height: auto;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    place-items: center;
-    border: 5px solid rgb(89, 0, 255); 
-}
-
-
-div.subPortfolio { 
-    width: 20%; 
-    height: auto; 
-    padding: 0; 
-    margin: 4% 1% 4% 1%; 
-    background-color: rgb(209, 209, 209); 
-    text-align: center; 
-    border-radius: 2%;
-    border: 5px solid rgb(0, 255, 85); 
- 
-
-}
-.project-img{
-    width: 80%;
-    height: auto;
-    margin: 1.5em 1.5em 0 1.5em;
-}
-.fa-arrow-left, .fa-arrow-right{
-    color: rgb(255, 255, 255);
-    transition: all 0.15s;
-    cursor: pointer;
-    opacity: 0.5;
-}
-.fa-arrow-left:hover, .fa-arrow-right:hover{
-    color:#cececeaf;
-}
-/*    ~~~~ PORTFOLIO end ~~~>   */
-
-
-/*    ~~~~ ABOUT US start ~~~>   */
-.about-main{
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    place-items: center;
-    
-}
-
-.about-submain{
-    width: 50%;  
-    margin: 0 25%; 
-    display: flex;
-    place-items: center;
-    justify-content: center;
-    text-align: center;
-    
-}
-
-.about-developer{
-    width: 40%;
-    background-color: rgb(209, 209, 209);
-    margin: 0 1em;
-    padding: 0.5em;
-    border-radius: 2%;
-    font-size: 0.9em;
-}
-.developer-img{
-    width: 70%;
-    height: auto;
-    margin: 1em 0 0 0;
-    border-radius: 50%;
-}
-.developer-header{
-    margin: 0;
-    padding: 0;
-}
-
-.about-main > h1{
-    margin: 0;
-    text-align: center;
-    
-}
-
-.about-developer > h1{
-    font-size: 1.5em;
-}
-
-/*    ~~~~ ABOUT US end ~~~>   */
-
-
-/*    <~~~ start CONTACT ~~~~   */
-.contactPage{
-    display: flex;
-}
-
-.contactPage > div {
-    background-color: rgba(34, 34, 34, 0.541);
-    margin: 0.5em;
-    padding: 0.5em;
-    width: 50%;
-  }
-
-.contactLabel{
-    color: #FFFFFF;
-}
-
-.contactInfo{
-    display: flex;
-}
-
-.contactForm{
-    width: 90%;
-    margin-bottom: 1em;
-}
-
-.contactInfo > div {
-    background-color: rgba(255, 255, 255, 0.7);
-    margin: 0.5em;
-    padding: 0.5em;
-  }
-
-#contactSubmit {
-    width: 22%;
-    display:inline-block;
-    padding: 0.5em 0;
-    margin:0 0.3em 0.3em 0;
-    border:0.16em solid #FFFFFF;
-    box-sizing: border-box;
-    text-decoration:none;
-    text-transform:uppercase;
-    font-weight:600;
-    color: #FFFFFF;
-    border-color: rgb(255, 255, 255);
-    text-align: center;
-    transition: all 0.15s;
-    background-color: rgba(255, 255, 255, 0.257);
-}
-
-    /* Gör inget ännu nedan */
-.contactSubmit > input:hover{
-    color:#DDDDDD;
-    border-color:#DDDDDD;
-    background-color:#dddddd25;
-    cursor: pointer;
-}
-
-/* Gör inget ännu nedan */
-.contactSubmit > input:active{
-    color:#BBBBBB;
-    border-color:#BBBBBB;
-    background-color: rgba(187, 187, 187, 0.384);
+    .portfolioLeft, .portfolioRight{
+        margin: 15% 1%;
     }
+    #portfolioGroup{
+        flex-direction: row;
+        align-items: stretch;
+        margin-top: 5%;
+        flex-wrap: wrap;
+    }
+    div.subPortfolio { 
+        width: 20%; 
+        margin: 1%;
+        min-width: 250px;
+        max-height: 400px;
+    }
+    .subPortfolio > p{
+        max-height: 50%;
+        overflow:hidden;
+        white-space: wrap;
+        text-overflow: ellipsis;
+    }
+    .subPortfolio > img{
+        max-width: 250px;
+        max-height: 150px;
+        object-fit: cover;
+    }
+    /*    ~~~~ PORTFOLIO desktop end ~~~>   */
 
 
-/* .contactLeft{
-    background: rgba(41, 236, 15, 0.801);  
-    display: inline-flex;
-    width: 30%;
-    place-items: left;
-    justify-content: left;
-    flex-wrap: nowrap;
-    text-align: left;
-}
 
-.contactRight{
-    background: rgba(182, 96, 15, 0.795); 
-    width: 30%;
-    flex-wrap: nowrap;
-    display: inline-flex;
-    place-items: right;
-    justify-content: right;
-    text-align: center;
-} */
+    /*    ~~~~ ABOUT US desktop start ~~~>   */
 
+    .about-description{
+        width: 40%;
+        margin: 3% 28%;
+        padding: 1% 2%;
+    }
+    .about-main{
+        width: 40%;
+        margin: 3% 28%;
+        padding: 1% 2%;
+    }
+    .about-developer{
+        width: 23%;
+    }
+    .person-content{
+        width: 70%;
+        margin: 4% 15%;
+        padding: 2%;
+        justify-content: left;
+        text-align: left;
+        float: left;
+        flex-wrap: nowrap;
+        overflow-y: auto;
+    }
+    .person-portrait{
+        width: 90%;
+        margin: 25% 5% 0 5%;
+    }
+    .person-content-right > hr{
+        width: 80%;
+        margin: 2% 15%;
+    }
+    .person-content-right{
+        margin: 2%;
+        padding: 0;
+    }
+    .skills{
+        width: 100%;
+        margin: 2%;
+    }
+    .skills > p{
+        padding: 1% 0;
+        margin: 0; 
+    }
+    /*    ~~~~ ABOUT US desktop end ~~~>   */
 
-
-/*    ~~~~ CONTACT end ~~~>   */
-
-/* Desktop page: */
-@media screen and (min-width: 768px) { 
     
-    .fas, .fab, .far{ /*Adding style to class fas, fab and far */ 
+    /*    <~~~ FOOTER desktop start ~~~~     */
+    .fa-envelope, .fa-phone, .fa-instagram, .fa-facebook-f{ 
         font-size: 2em;  
-    }
-    .fa-github{
-        font-size: 1em;
-    }
-    footer{
-        height: 10%;
-        grid-row-start: 2;
-        grid-row-end: 3;
     }
     .footer_left{
         width:20%;
@@ -422,23 +813,44 @@ div.subPortfolio {
         float: right;
         text-align: center;
     }
+    /*    ~~~~ FOOTER desktop end ~~~>   */
+    
+
     #welcome > h1{
-        margin: 0 2em;
-        height: auto;
         font-size: 6em;
-        font-weight: bold;
-        letter-spacing: 0.1em;
-        color: white;
-        text-transform: uppercase;
-        display: grid;
-        justify-content:center; 
-        place-items: center;   
     }
-    /*    ~~~~ NAVIGATION start ~~~>   */
+    .welcome-buttons > a{
+        width: 15em;
+    }
+
+    /* Contact start */
+    #contactTitle{
+        display: block; 
+    }
+    .contactPage{
+        display: flex;
+    }
+    .contactPage > div {
+
+        width: 50%;
+    }
+    .contactLeft{
+        padding: 1em 2em 0.5em 1.5em;
+        margin: 1em 1em 1em 5em;
+    }    
+    .contactRight {
+        padding: 1em 2em 0.5em 1.5em;
+        margin: 1em 5em 1em 1em;
+    }
+    /* #contactSubmit {
+        margin-top: 2em;
+    }
+    #contactSubmitMessage {
+        margin-top: 2.2em;
+        overflow-wrap: break-word;
+    } */
     
-
     
-    /*    ~~~~ NAVIGATION end ~~~>   */
+    /* Contact end */
 
-
-}
+}/* end of Desktop-page */

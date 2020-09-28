@@ -3,52 +3,68 @@ $(document).ready(function() {
 
     $('#page-content').load('./pages/start.html');
 
+    function loadPage(clickedId, pageUrl, pageTitle){
+        $('#page-content').load(pageUrl);
+        $('#navBar-pageTitle').html(pageTitle);
+        $('.menuBtn').removeClass('activePage');
+        $(clickedId).addClass('activePage');
+        // classToggle();
+    }
+
     $('#home').click(function (event) {
         event.preventDefault();
-        $('#page-content').load('./pages/start.html');
+        loadPage('#home','./pages/start.html','Home');
     });
 
     $('#header-logo').click(function (event) {
         event.preventDefault();
-        $('#page-content').load('./pages/start.html');
+        loadPage('#home','./pages/start.html','Home');
     });
 
     $('#portfolio').click(function (event) {
         event.preventDefault();
-        $('#page-content').load('./pages/portfolio.html');
+        loadPage('#portfolio','./pages/portfolio.html','Portfolio');
 
         // laddar in projekten
-        $.getJSON(
-            'res/portfolio-data.json',
-            function (data) {
-                displayPortfolio(data.projects);
-            }
-        );
+    //     $.getJSON(
+    //         'res/portfolio-data.json',
+    //         function (data) {
+    //             displayPortfolio(data.projects);
+    //         }
+    //     );
     });
 
     $('#about').click(function (event) {
         event.preventDefault();
-        $('#page-content').load('./pages/about.html');
+        loadPage('#about','./pages/about.html','About us');
+
+        // laddar in utvecklarna
+        $.getJSON(
+            'res/about-data.json',
+            function (data) {
+                displayAbout(data.person);
+            }
+        );
     });
 
     $('#contact').click(function (event) {
         event.preventDefault();
-        $('#page-content').load('./pages/contact.html');
+        loadPage('#contact','./pages/contact.html','Contact');
     });
 
     function classToggle() {
-        const navs = document.querySelectorAll('nav')
-        
-        navs.forEach(nav => nav.classList.toggle('navBarToggleShow'));
+        // $("nav").slideToggle();
+        // $("nav").animate({'height': 'toggle'}, 'slow');
+        const navs = document.querySelectorAll('nav');
+        navs.forEach(nav => nav.classList.toggle('navBar-show'));
       }
       
-      document.querySelector('.navBarLink-toggle')
+      document.querySelector('.navButton-toggle')
         .addEventListener('click', classToggle);
 
     /* <~~~~~ knapparna på startsidan - dessa knappar finns också i extrascript ~~~~~~ */    
 
     $('#startProjects').click(function (event) {
-        console.log("hej knapptryckare");
         event.preventDefault();
         $('#page-content').load('./pages/portfolio.html');
     });
@@ -57,6 +73,9 @@ $(document).ready(function() {
         event.preventDefault();
         $('#page-content').load('./pages/about.html');
     });
+
+
+
 
     /* ~~~~~~ knapparna på startsidan ~~~~~~> */  
 
@@ -69,6 +88,5 @@ $(document).ready(function() {
     //         $('#autoWidth').removeClass('cS-hidden');
     //     } 
     // });  
-
 
  });
