@@ -18,8 +18,8 @@
         });
     };
 
-   
-    $('.about-main').find("div").click(function (event) {
+    $(".about-main").on("click", ".about-developer", function(event){
+    // $('#about-submain').find("div").click(function (event) {
         event.preventDefault();
         var id = (event.target.id);
         $(".persondiv").show();
@@ -110,11 +110,13 @@
     };
 
     $(".about-personal").on("click", "#close-person", function(event){
+        if(event.target.id=="close-person"){
         event.preventDefault();
         $('.persondiv').html('');
         $(".person-content").hide();
         $(".persondiv").hide(); 
         $("body").css({"overflow-y": "auto"});
+        };
     });
 
     $(".about-personal").on("click", "#thePersondiv", function(event){

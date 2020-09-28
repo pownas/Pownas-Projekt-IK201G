@@ -6,6 +6,7 @@ $(document).ready(function() {
 
     var showIndex = 0;
 
+  
     
     $.getJSON(
         'res/portfolio-data.json',
@@ -38,7 +39,7 @@ $(document).ready(function() {
             divList[divIndex] = projectGroup;
             divIndex++;
             projectGroup = startDiv;    
-            //för var fjärde div så skapas en slut tag, sen lagras diven i en yttre div
+            //för var fjärde div så skapas en slut-tag, sen lagras 4 divar i en yttre div
         };       
         index++;     
     });
@@ -48,12 +49,14 @@ $(document).ready(function() {
         //tömmer diven ifall inga projekt finns
     };
 
-    if ((index + 1) % 4 != 0){
+    if ((index) % 4 != 0){
         projectGroup += endDiv;
         divList[divIndex] = projectGroup;    
         //lägger till slut-div-tagg       
     };
     
+    console.log(divList);
+
     if (divList[divList.length-1] == '<div id="portfolioGroup"></div>'){
         divList.splice(divList.length-1,1); 
         //raderar en sista tom div som skapas när antalet projekt är delbart med 4
@@ -91,7 +94,14 @@ $(document).ready(function() {
     });
 });
 
-//TESTING!!!!!!
+//About-project...
+
+var slideshowInterval = clearInterval(slideshowInterval);
+
+var images = [];
+
+var playflag = false;
+
 $(".portfolioMain").on("click", ".subPortfolio", function(event){
     event.preventDefault();
     var id = (event.target.id);
@@ -99,7 +109,7 @@ $(".portfolioMain").on("click", ".subPortfolio", function(event){
     $(".projectdiv").show();
     $(".project-content").show();
 
-    $("body").css({"overflow": "hidden"});
+    $("body").css({"overflow-y": "auto"});
     
     // Loads persons from about-data.json
     $.getJSON(
@@ -112,18 +122,19 @@ $(".portfolioMain").on("click", ".subPortfolio", function(event){
 
 function getProject(projects, id) {
     $.each(projects, function (ind, project) {
-            if (project.id == id) {
-
-            console.log(project.id + " projectid");
-            console.log(id + " id");
-
+            if (project.id == id) {              
+                
                 var projectSquare = $(
                     '<div class="project-content" id="' + project.id + '">' + 
-                        '<div class="project-content-left">' +
-                            '<span class="fas fa-times" id="close-portfolio"></span>' +
-                            '<img class="project-image" src="' + project.image + '" title="developer" alt="developer">' +                                
+                        '<div class="project-content-top">' +
+                            '<span class="fas fa-times" id="close-portfolio"></span>' +                           
+                            //'<div class="slideshowDiv">' +
+                                '<img class="slideshow-image" id="slideshow" src="' + project.slideshow[0] + '" title="developer" alt="developer">' + 
+                                '<span class="fas fa-pause" id="slideShowPause"></span>' + 
+                                '<span class="fas fa-play" id="slideShowPlay"></span>' + 
+                            //'</div>' +                
                         '</div>' +
-                        '<div class="project-content-right">' + 
+                        '<div class="project-content-bottom">' + 
                             '<h2> ' + project.title + '</h2>' + 
                             '<p>' + project.date + '</p>' +  '<hr/>' +
                             '<p>' + project.description +'</p>' + 
@@ -132,17 +143,38 @@ function getProject(projects, id) {
                             '<br/>' +
                                                        
                     '</div>'
+                    
                 );
+
+            images = project.slideshow;
             $('.projectdiv').html(projectSquare);  
+
+            
+
+            slideshowInterval = setInterval(slideshow, 2000); 
+            playflag = true;
             };
     });
 };
+
+var slideIndex = 1;
+
+function slideshow(){
+    
+    if (slideIndex == images.length){
+        slideIndex=0;
+    }    
+    document.getElementById('slideshow').src=images[slideIndex];
+    slideIndex++;
+}
 
 $(".about-project").on("click", "#close-portfolio", function(event){
     event.preventDefault();
     $('.projectdiv').html('');
     $(".project-content").hide();
     $(".projectdiv").hide(); 
+    clearInterval(slideshowInterval); 
+    playflag = true;
     $("body").css({"overflow": "auto"});
 });
 
@@ -152,6 +184,66 @@ $(".about-project").on("click", "#theProjectdiv", function(event){
         $('.projectdiv').html('');
         $(".project-content").hide();
         $(".projectdiv").hide(); 
+        clearInterval(slideshowInterval); 
+        playflag = true; 
         $("body").css({"overflow": "auto"});
     }; 
+});
+
+$(".about-project").on("mouseover", "#slideshow", function(event){
+    if (playflag == true){
+        $("#slideShowPause").css({"visibility": "visible"});
+    }
+    else {
+        $("#slideShowPlay").css({"visibility": "visible"});
+    }
+
+    $(".slideshow-image").css({backgroundColor: "black"});
+    $(".slideshow-image").css({"opacity": "0.8"});    
+});
+$(".about-project").on("mouseover", "#slideShowPlay", function(event){
+    if (playflag == true){
+        $("#slideShowPause").css({"visibility": "visible"});
+    }
+    else {
+        $("#slideShowPlay").css({"visibility": "visible"});
+    }
+
+    $(".slideshow-image").css({"background-color": "black"});
+    $(".slideshow-image").css({"opacity": "0.8"});
+    
+});
+$(".about-project").on("mouseover", "#slideShowPause", function(event){
+    if (playflag == true){
+        $("#slideShowPause").css({"visibility": "visible"});
+    }
+    else {
+        $("#slideShowPlay").css({"visibility": "visible"});
+    }
+
+    $(".slideshow-image").css({"background-color": "black"});
+    $(".slideshow-image").css({"opacity": "0.8"});
+    
+});
+$(".about-project").on("mouseleave", "#slideshow", function(event){
+    $("#slideShowPlay").css({"visibility": "hidden"});
+    $("#slideShowPause").css({"visibility": "hidden"});
+
+    $(".slideshow-image").css({"background-color": "rgba(0, 0, 0, 0)"});
+    $(".slideshow-image").css({"opacity": "1"});
+    
+});
+
+$(".about-project").on("click", "#slideShowPause", function(event){
+    clearInterval(slideshowInterval);
+    playflag = false; 
+    $("#slideShowPause").css({"visibility": "hidden"});
+    $("#slideShowPlay").css({"visibility": "visible"});
+});
+
+$(".about-project").on("click", "#slideShowPlay", function(event){
+    slideshowInterval = setInterval(slideshow, 2000); 
+    playflag = true;
+    $("#slideShowPause").css({"visibility": "visible"});
+    $("#slideShowPlay").css({"visibility": "hidden"});
 });
