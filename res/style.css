@@ -3,25 +3,22 @@ html, body{
     height: 100%;
     padding: 0;
     margin: 0;
-    font-family:'Roboto', sans-serif; 
-    background: rgb(238, 238, 238);
+    font-family: sans-serif; 
+    background: rgb(255, 255, 255);
 }
-
-#page-content{
+.page-content{
     width: 100%;
-    height: 100%;
+    max-height: 84%;
     display: inline-block;
-    /* justify-content:center; */
-    /* place-items: center; */
 }
 
-/*    <~~~ NAVIGATION start ~~~~   */
-
+/*    <~~~ HEADER NAVIGATION start ~~~~   */
 .navBar{
     width: 100%;
     display: inline-block;
     min-height: 55px;
-    background: rgb(238, 238, 238);
+    background: rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgb(133, 129, 129); 
     justify-content: center;
 }
 .navBar-left{
@@ -30,10 +27,13 @@ html, body{
 }
 #header-logo{
     display: inline-block;
-    width: 95%;
-    height: auto;
-    margin: 0.2em 1em;
+    margin: 0 1em;
     cursor: pointer;
+    display: none;
+}
+#header-logo-mobile{
+    width: 50px;
+    height: auto;
 }
 .navBar-center{
     width: 40%;
@@ -44,7 +44,7 @@ html, body{
 }
 #navBar-pageTitle {
     margin: 0 auto;
-    font-size: 2em;
+    font-size: 1.3em;
     font-weight: bold;
 }
 .navBar-right{
@@ -53,9 +53,9 @@ html, body{
     width: 28%;
     height: auto;
 }
-.navButton-toggle{
-    height: 44px;
-    width: 44px;
+#navButton-toggle{
+    height: 33px;
+    width: 33px;
     position: relative;
     display: block;
     margin: 0.5em 0.5em;
@@ -64,14 +64,15 @@ html, body{
     background: transparent;
     border: 3px solid #555;
     border-radius: 8px;
+    cursor: pointer;
 }
 .navButton-Line{
     background:#555;
     display: block;
-    width: 26px;
+    width: 15px;
     height: 3px;
     border-radius: 1px;
-    margin: 5px 0;
+    margin: 3px 0;
 }
 .navBar-show{
     display: inline-block;
@@ -80,7 +81,7 @@ html, body{
     animation-delay: 0s;
     animation-iteration-count: 1;
     animation-direction: alternate;
-    animation-fill-mode: none;
+    animation-fill-mode: forwards;
     animation-play-state: running;
     animation-name: openNavBar;
 }
@@ -106,7 +107,7 @@ nav > ul > li{
 }
 nav > ul > li > a{
     display: inline-block;
-    padding: 0.8em;
+    padding: 0.5em;
     text-align: center;
 }
 nav > ul > li > a:hover{
@@ -119,30 +120,53 @@ nav > ul > li > a:hover{
     background: #333;
     color: #fff
 }
+/*    ~~~~ HEADER NAVIGATION end ~~~>   */
 
+/*    <~~~ FOOTER start ~~~~   */
+footer{
+    width: 100%;
+    background: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.8em;
+}
+.fa-envelope, .fa-phone, .fa-instagram, .fa-facebook-f{ 
+    margin: 0.6em;
+    color: rgb(78, 78, 78); 
+    font-size: 1.5em;  
+}
+.fas:hover, .fab:hover, .far:hover{
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+/* Adding GitHub icon font-size */
+.fa-github{
+    font-size: 1em;
+}
+.footer_center > p > a{
+    color: rgb(0, 0, 0);
+}
+/*    ~~~~ FOOTER end ~~~>   */
 
-/*    ~~~~ NAVIGATION end ~~~>   */
-
-/*    ~~~~ HOME start ~~~>   */
-
+/*    ~~~~ HOME page start ~~~>   */
 main{
-    min-height: 80%;
+    min-height: 100%;
     width: 100%;
     background-image: url('../img/background.jpg');
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: cover;
+    background-position: center center;
 }
-
-#welcome{
+#Home-Page{
     width: 100%;
     margin-top: 10em;
     opacity: 0; 
 }
-#welcome > h1{
+#Home-Page > h2{
     margin: 0 auto;
     height: auto;
-    font-size: 4em;
-    font-weight: bold;
+    font-size: 3.3em;
     letter-spacing: 0.1em;
     color: white;
     text-transform: uppercase;
@@ -180,41 +204,9 @@ main{
     border-color:#BBBBBB;
     background: rgba(187, 187, 187, 0.384);
 }
+/*    ~~~~ HOME page end ~~~>   */
 
-/*    ~~~~ HOME end ~~~>   */
-
-/*    <~~~ FOOTER start ~~~~   */
-footer{
-    width: 100%;
-    background: rgb(238, 238, 238);
-    display: flex;
-    justify-content: center;
-    text-align: center;
-}
-
-.fa-envelope, .fa-phone, .fa-instagram, .fa-facebook-f{ 
-    margin: 0.6em;
-    color: rgb(78, 78, 78); 
-    font-size: 1.5em;  
-}
-
-.fas:hover, .fab:hover, .far:hover{
-    color: rgb(0, 0, 0);
-    cursor: pointer;
-}
-/* Adding GitHub icon font-size */
-.fa-github{
-    font-size: 1em;
-}
-.footer_center > p > a{
-    color: rgb(0, 0, 0);
-}
-
-/*    ~~~~ FOOTER end ~~~>   */
-
-
-/*    <~~~ PORTFOLIO start ~~~~   */
-
+/*    <~~~ PORTFOLIO page start ~~~~   */
 .portfolioMain{
     display: flex;
     flex-direction: column;
@@ -251,12 +243,18 @@ div.subPortfolio {
     height: auto; 
     padding: 0.5%; 
     margin: 1em; 
-    background: rgba(255, 255, 255, 0.900);
+    background: rgba(34, 34, 34, 0.641);
+    color: white;
     text-align: center; 
     border-radius: 2%;
 }
 .subPortfolio > p {
     margin: 1% 5%;
+    display: inline-block;
+    width: 80%; 
+    overflow:hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
 }
 .subPortfolio:hover{
     transform: scale(1.05); 
@@ -276,30 +274,13 @@ div.subPortfolio {
     font-size: 3em;
 }
 .fa-arrow-left:hover, .fa-arrow-right:hover{
-    color:#cececeaf;
+    color: rgb(255, 255, 255);
 }
 
-
-
-/* ---------------- ANVÄNDS DESSA???? -------------------
- .project-image{
-    width: 500px;
-    height: auto;
-    margin: 5% 0 0 0;
-    padding: 0;
-} 
- .btn-img:hover img { 
-    opacity: 0.8;
-} ------------------------------------------------------*/
-
-
-
-/*    <~~~ PROJECT ABOUT start ~~~~   */
-
-
+/*    <~~~ PROJECT info start ~~~~   */
 .projectdiv {
     width: 100%;
-    height: 100%; 
+    height: 100%;
     position: fixed;
     top: 0;
     left: 0;
@@ -310,7 +291,7 @@ div.subPortfolio {
 .project-content{
     background: rgba(255, 255, 255, 0.900);
     width: 100%;
-    height: 100%;
+    max-height: 81%; 
     position: fixed;
     padding: 0;
     margin: 0;
@@ -319,18 +300,19 @@ div.subPortfolio {
     text-align: center;
     display: flex;
     flex-wrap: wrap;
-    overflow-y: auto; 
+    overflow-y: auto;
+}
+.slideshowDiv{
+    position:relative;
 }
 .slideshow-image{
-    width: 80%;
-    margin: 10% 1% 0;
-    max-height: 100%;
-    min-height: 50%;
-    max-width: 100%;
+    width: auto;
+    max-width: 90%;
+    margin: 10% 1% 2%;
+    height: 200px;
     object-fit: cover;
 }
 .project-content-top{
-    position:relative;
     width: 100%;
     height: auto;
 }
@@ -339,10 +321,9 @@ div.subPortfolio {
     font-size: 40px;
     color: rgba(238, 230, 230, 0.800);
     position: absolute;
-    top: 50%; /* Får ej knapparna i mitten!!!! */
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    /* -ms-transform: translate(-50%, -50%); */
     margin: 0;
     padding: 0;
     cursor: pointer;
@@ -372,45 +353,43 @@ div.subPortfolio {
     margin: 1% 20%;
     color: rgb(0, 0, 0);
 }
-
 #close-portfolio{
     position: absolute;
     top: 0;
     right: 0;
+    z-index: 2;
 }
-/*    <~~~ PROJECT ABOUT end ~~~~   */
-
+/*    <~~~ PROJECT info end ~~~~   */
 /*    ~~~~ PORTFOLIO end ~~~>   */
 
-
-
-/*    ~~~~ ABOUT US start ~~~>   */
-
+/*    ~~~~ ABOUT US page start ~~~>   */
 .about-description{
     width: 90%;
     margin: 2%;
     padding: 2% 3%;
     text-align: justify;
-    background: rgba(34, 34, 34, 0.541);
+    background: rgba(34, 34, 34, 0.641);
     color: white;
+    border-radius: 2%;
 }
-.about-description > h1{
+.about-description > h2{
     text-align: center;
+    font-size: 2em; 
 }
 .about-main{
     width: 90%;
     margin: 2%;
     padding: 2% 3%; 
     height: 100%;
-    background: rgba(34, 34, 34, 0.541);
+    background: rgba(34, 34, 34, 0.641);
     color: white;
-
+    text-align: center; 
+    border-radius: 2%;
 }
-.about-main > h1{
+.about-main > h2{
     width: 100%;
     padding: 0;
     margin: 0;
-    text-align: center;
     font-size: 2em;
 }
 #about-submain{
@@ -445,10 +424,11 @@ div.subPortfolio {
     margin: 0;
     border-radius: 50%;
 }
-.about-developer > h1{
+.about-developer > h2{
     font-size: 1.5em;
     margin: 0;
     padding: 0;
+    text-align: center;
 }
 .about-developer > p{
     margin: 0;
@@ -478,7 +458,6 @@ div.subPortfolio {
     overflow-y: auto; 
     max-height: 100%;
 }
-
 .person-portrait{
     width: 80%;
     height: auto;
@@ -505,8 +484,7 @@ div.subPortfolio {
     padding: 1% 4%;
     right: 0px;
     top: 0px;
-    text-align: justify;
-    justify-content: center;
+    text-align: left;
 }
 #close-person{
     position: absolute;
@@ -560,10 +538,9 @@ div.subPortfolio {
     background-color: #e78402;
     text-align: right;
 }
+/*    ~~~~ ABOUT US page end ~~~>   */
 
-/*    ~~~~ ABOUT US end ~~~>   */
-
-/*    <~~~ start CONTACT ~~~~   */
+/*    <~~~ CONTACT page start ~~~~   */
 #contactTitle{
     text-align: center;
     display: none; 
@@ -578,10 +555,12 @@ div.subPortfolio {
 .contactLeft{
     padding: 1em 2em 0.5em 1.5em;
     margin: 1em auto; 
+    border-radius: 2%;
 }    
 .contactRight {
     padding: 1em 2em 0.5em 1.5em;
     margin: 1em auto; 
+    border-radius: 2%;
 }
 .contactLabel{
     color: #FFFFFF;
@@ -600,7 +579,7 @@ div.subPortfolio {
     margin: 0;
     padding: 0.5em;
     width: 33%;
-    color: #fff;
+    color: #ffffff;
 }
 .contactInfo > div > h3{
     margin: 0;
@@ -608,6 +587,12 @@ div.subPortfolio {
 }
 .contactInfo > div > p{
     font-size: 0.9em;
+}
+.contactEmail > p > a{
+    color:#FFFFFF; 
+}
+.contactTelephone > p > a {
+    color:#FFFFFF; 
 }
 #contactSubmit {
     width: 8em;
@@ -641,7 +626,6 @@ div.subPortfolio {
     text-align: center;
     margin-top: 1.2em; 
 }
-
 .contactError{ 
     color:rgb(243, 127, 127);
     float:right;
@@ -650,14 +634,12 @@ div.subPortfolio {
     color:rgb(0, 221, 7);
     float:right;
 }
+/*    ~~~~ CONTACT page end ~~~>   */
 
-/*    ~~~~ CONTACT end ~~~>   */
-
-
-/* start of Desktop-page: */
+/*    <~~~~ DESKTOP layout start ~~~   */
 @media screen and (min-width: 768px) { 
 
-    /*  <~~~ NAVIGATION desktop start~~~~   */    
+    /*    <~~~~ HEADER NAVIGATION desktop start~~~    */    
     nav{
         visibility: visible;
         display: inline-block;
@@ -674,7 +656,11 @@ div.subPortfolio {
         width: 20%;
     }
     #header-logo{
-        width: 200px;
+        width: 150px;
+        display: block;
+    }
+    #header-logo-mobile{
+        display: none;
     }
     .navBar-center{
         display: none;
@@ -688,12 +674,44 @@ div.subPortfolio {
     nav > ul{
         width: auto;
     }
-    
+    nav > ul > li > a{
+        padding: 1em 1.5em;
+    }
     /*    ~~~~ NAVIGATION desktop end ~~~>   */
+
+    /*    <~~~ FOOTER desktop start ~~~~     */
+    footer{
+        font-size: 1em;
+    }
+    .fa-envelope, .fa-phone, .fa-instagram, .fa-facebook-f{ 
+        font-size: 2em;  
+    }
+    .footer_left{
+        width:20%;
+        margin: 0 0 0 0;
+        float: left; 
+        text-align: center;
+    }
+    .footer_center{
+        width:60%;
+        margin: 0 0 0 0;
+        float:left;
+        display: grid;
+        place-items:center;
+        text-align: center;
+    }
+    .footer_right{
+        width:20%;
+        margin: 0 0 0 0;
+        float: right;
+        text-align: center;
+    }
+    /*    ~~~~ FOOTER desktop end ~~~>   */
 
     /*    <~~~ PORTFOLIO desktop start ~~~~   */
     .portfolioMain{
         flex-direction: row;
+        margin: 4% 0 0 0;
     }
     .portfolioLeft, .portfolioRight{
         margin: 15% 1%;
@@ -708,57 +726,40 @@ div.subPortfolio {
         width: 20%; 
         margin: 1%;
         min-width: 250px;
-        max-height: 400px;
     }
-
-    /* Denna behöver ses över - texten wrapar inte korrekt? Hur blir detta om bilderna är
-       olika stora? */
-
     .subPortfolio > p{
         margin: 0% 5%;
-        /* max-height: 50%;  */
-        display: inline-block;
-        width: (20%); 
-        overflow:hidden;
-        /* white-space: nowrap; */
-        text-overflow: ellipsis;
-
-        /* word-wrap: hidden; */
     }
-    /* Behöver vi ange en fast höjd för bilderna? Bilderna försjkuter texten annars?? 
-       Bilderna blir komprimerade om vi anger fasta värden, se över hur texten under
-       reagerar på att bilder är olika stora. */
-
-    .project-image{
-        /* height: 140px;
-        width: 200px;
-        object-fit: cover; */
+    .project-img{
+        width: 80%;
+        height: 150px;
     }
-
     .project-content{
         width: 70%;
-        height: auto;
         margin: 4% 15%;
     }
     .slideshow-image{
-        width: 50%;
-        margin: 7% 0 2% 0;
+        margin: 5% 0 2% 0;
+        height: 400px;
+    }
+    .fa-arrow-left:hover, .fa-arrow-right:hover{
+        color:#cececeaf;
+    }
+    .portfolioLeft > #arrowRightMobile, .portfolioRight > #arrowLeftMobile{
+        display: none;
     }
 
     /*    ~~~~ PORTFOLIO desktop end ~~~>   */
 
-
-
     /*    ~~~~ ABOUT US desktop start ~~~>   */
-
     .about-description{
         width: 40%;
-        margin: 3% 28%;
+        margin: 4% 28%;
         padding: 1% 2%;
     }
     .about-main{
         width: 40%;
-        margin: 3% 28%;
+        margin: 0 28% 2%;
         padding: 1% 2%;
     }
     .about-developer{
@@ -766,6 +767,7 @@ div.subPortfolio {
     }
     .person-content{
         width: 70%;
+        max-height: 75%; 
         margin: 4% 15%;
         padding: 2%;
         justify-content: left;
@@ -797,62 +799,47 @@ div.subPortfolio {
         margin: 0; 
     }
     /*    ~~~~ ABOUT US desktop end ~~~>   */
-
     
-    /*    <~~~ FOOTER desktop start ~~~~     */
-    .fa-envelope, .fa-phone, .fa-instagram, .fa-facebook-f{ 
-        font-size: 2em;  
-    }
-    .footer_left{
-        width:20%;
-        margin: 0 0 0 0;
-        float: left; 
-        text-align: center;
-    }
-    .footer_center{
-        width:60%;
-        margin: 0 0 0 0;
-        float:left;
-        display: grid;
-        place-items:center;
-        text-align: center;
-    }
-    .footer_right{
-        width:20%;
-        margin: 0 0 0 0;
-        float: right;
-        text-align: center;
-    }
-    /*    ~~~~ FOOTER desktop end ~~~>   */
-    
-
-    #welcome > h1{
+    /*    <~~~ HOME desktop start ~~~~     */    
+    #Home-Page > h2{
         font-size: 6em;
     }
     .welcome-buttons > a{
         width: 15em;
     }
+    #Home-Page{
+        margin: 15% 0 0 0;
+    }
+    /*    ~~~~ HOME desktop end ~~~>   */
 
-    /* Contact start */
+    /*    <~~~ CONTACT desktop start ~~~~     */
     #contactTitle{
         display: block; 
     }
     .contactPage{
         display: flex;
+        margin: 3% 0 0 0;
     }
     .contactPage > div {
-
         width: 50%;
     }
     .contactLeft{
         padding: 1em 2em 0.5em 1.5em;
-        margin: 1em 1em 1em 5em;
+        margin: 4em 1em 1em 5em;
     }    
     .contactRight {
         padding: 1em 2em 0.5em 1.5em;
-        margin: 1em 5em 1em 1em;
+        margin: 4em 5em 1em 1em;
     }   
-    
-    /* Contact end */
+    /*    ~~~~ CONTACT desktop end ~~~>   */
 
-}/* end of Desktop-page */
+}/*    ~~~~ DESKTOP layout end ~~~>   */
+
+@media screen and (max-height: 530px) and (min-width: 768px) {
+    .project-content{
+            margin: 0% 15%;
+    }
+    .person-content{
+        margin: 0% 15%;
+    }
+}
